@@ -1,15 +1,14 @@
 import pytest
-import test_api
 
 
 @pytest.fixture(scope="function")
 def list_users_fields():
     field = {
-        "page": None,
-        "per_page": None,
-        "total": None,
-        "total_pages": None,
-        "data": None
+        "page": int,
+        "per_page": int,
+        "total": int,
+        "total_pages": int,
+        "data": list
     }
     yield field
 
@@ -38,10 +37,10 @@ def post_response_fields():
 
 
 @pytest.fixture(scope="function")
-def put_response_fields():
+def put_patch_del_response_fields():
     field = {
         "name": "morpheus",
         "job": "zion resident",
-        "updatedAt": None
+        "updatedAt": str
     }
     yield field
